@@ -1,26 +1,230 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --navy: #1a2a44;
+    --gold: #c5a059;
+    --cream: #f8f5f0;
+    --background: var(--cream);
+    --foreground: var(--navy);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme {
+  --color-navy: var(--navy);
+  --color-gold: var(--gold);
+  --color-cream: var(--cream);
+  --font-serif: var(--font-noto-serif-sc);
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .gold-text {
+    color: var(--gold);
+  }
+
+  .gold-bg {
+    background-color: var(--gold);
+  }
+
+  .gold-border {
+    border-color: var(--gold);
+  }
+
+  .navy-bg {
+    background-color: var(--navy);
+  }
+
+  .main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+  }
+
+  .card {
+    background: white;
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .divider {
+    width: 40px;
+    height: 2px;
+    background-color: var(--gold);
+    margin: 1.5rem auto;
+  }
+
+  .dest-card {
+    border: 1px solid #eee;
+    transition: all 0.3s;
+  }
+
+  .dest-card:hover {
+    border-color: var(--gold);
+    background: var(--cream);
+  }
+
+  /* 荣誉墙轮播 - 纯CSS实现 */
+  .scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 20px 0;
+    scrollbar-width: none;
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-item {
+    flex: 0 0 70%;
+    scroll-snap-align: center;
+    background: white;
+    padding: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  @media (min-width: 768px) {
+    .scroll-item {
+      flex: 0 0 40%;
+    }
+  }
+
+  /* 流程线 */
+  .process-step {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid var(--gold);
+  }
+
+  .process-step::before {
+    content: '';
+    position: absolute;
+    left: -5.5px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  /* 目的地详情卡片 */
+  .destination-item {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 2.5rem 0;
+  }
+
+  .destination-item:last-child {
+    border-bottom: none;
+  }
+
+  .dest-image-wrapper {
+    width: 100%;
+    height: 200px !important;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+    background-color: var(--navy);
+  }
+
+  .dest-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .destination-item:hover img {
+    transform: scale(1.05);
+  }
+
+  /* 合作伙伴 Logo 墙 */
+  .partner-logo {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s;
+  }
+
+  .partner-logo:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* FAQ 样式 */
+  .faq-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid #eee;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    padding: 1.25rem 0;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 1.8;
+  }
+
+  .faq-item-active .faq-answer {
+    max-height: 500px;
+    padding-bottom: 1.25rem;
+  }
+
+  .faq-item-active .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-icon {
+    transition: transform 0.3s;
+    color: var(--gold);
+    font-size: 1.25rem;
+  }
+
+  /* Swiper Pagination Customization */
+  .partner-pagination .swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 0.5;
+    margin: 0 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .partner-pagination .swiper-pagination-bullet-active {
+    background: var(--gold) !important;
+    opacity: 1;
+    width: 20px;
+    border-radius: 4px;
+  }
 }
