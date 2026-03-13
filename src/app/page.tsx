@@ -80,15 +80,15 @@ export default function Home() {
     { name: "Melbourne", img: "/images/Logos/log-Melbourne.png" },
     { name: "Rochester", img: "/images/Logos/logi-Rochester.png" },
     { name: "Auckland", img: "/images/Logos/logo-Auckland.png" },
-    { name: "JCU", img: "/images/Logos/logo-JCU.svg" },
+    { name: "JCU Singapore", img: "/images/Logos/logo-JCU.svg" },
     { name: "KCL", img: "/images/Logos/logo-KCL.svg" },
     { name: "Manchester", img: "/images/Logos/logo-Manchester.png" },
     { name: "Monash", img: "/images/Logos/logo-Monash.png" },
     { name: "诺丁汉大学", img: "/images/Logos/logo-Nottingham.png" },
     { name: "Ohio", img: "/images/Logos/logo-Ohio.png" },
     { name: "Queensland", img: "/images/Logos/logo-Queensland.png" },
-    { name: "UCD", img: "/images/Logos/logo-Singapo-ucd.svg" },
-    { name: "Birmingham", img: "/images/Logos/logo-Singapo_Birmingham.png" },
+    { name: "UCD Singapore", img: "/images/Logos/logo-Singapo-ucd.svg" },
+    { name: "UoB Singapore", img: "/images/Logos/logo-Singapo_Birmingham.png" },
     { name: "SMU", img: "/images/Logos/logo-Singapore_Management.png" },
     { name: "UCL", img: "/images/Logos/logo-UCL.jpeg" },
     { name: "UNSW", img: "/images/Logos/logo-UNSW_Sydney.png" },
@@ -147,16 +147,16 @@ export default function Home() {
           <div className="card p-10 text-center rounded-sm">
             <div className="grid grid-cols-3 gap-4">
               <div className="group">
-                <div className="text-2xl md:text-3xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight">4200+</div>
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">服务学子</div>
+                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">专业 · Professional</div>
+                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">学术规划 · 深度咨询</div>
               </div>
               <div className="border-x border-gray-100 group">
-                <div className="text-2xl md:text-3xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight">93.8%</div>
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">百强录取</div>
+                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">安全 · Safe</div>
+                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">全程护航 · 风险对冲</div>
               </div>
               <div className="group">
-                <div className="text-2xl md:text-3xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight">127+</div>
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">藤校/G5录走</div>
+                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">可靠 · Reliable</div>
+                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">官方公示 · 规范透明</div>
               </div>
             </div>
           </div>
@@ -349,7 +349,7 @@ export default function Home() {
           <div className="mb-8 opacity-30 text-[10px] tracking-[0.4em] uppercase">Professionalism · Integrity · Excellence</div>
           <p className="text-sm opacity-90 leading-loose mb-12 italic">
             “留学规划不是一次单纯的中介服务，<br />
-            而是两个家庭关于未来的共同承诺。”
+            而是关于未来的共同承诺。”
           </p>
           <div className="text-[10px] opacity-40 leading-relaxed font-sans">
             © 2023 成都迈科斯国际教育咨询有限公司<br />
