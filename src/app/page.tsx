@@ -144,19 +144,19 @@ export default function Home() {
 
         {/* Stats */}
         <section className="px-6 -mt-12">
-          <div className="card p-10 text-center rounded-sm">
+          <div className="card p-6 text-center rounded-sm">
             <div className="grid grid-cols-3 gap-4">
               <div className="group">
-                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">专业 · Professional</div>
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">学术规划 · 深度咨询</div>
+                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">专业 </div>
+                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">学术规划</div>
               </div>
               <div className="border-x border-gray-100 group">
-                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">安全 · Safe</div>
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">全程护航 · 风险对冲</div>
+                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">安全</div>
+                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">全程护航</div>
               </div>
               <div className="group">
-                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">可靠 · Reliable</div>
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">官方公示 · 规范透明</div>
+                <div className="text-xl md:text-2xl font-bold mb-1 group-hover:scale-110 transition-transform tracking-tight text-blue-900">可靠</div>
+                <div className="text-[10px] text-gray-400 uppercase tracking-widest scale-90 text-center">规范透明</div>
               </div>
             </div>
           </div>
