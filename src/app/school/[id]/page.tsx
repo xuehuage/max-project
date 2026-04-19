@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import schoolsData from "../../../data/schools.json";
+import Consultation from "@/components/Consultation";
 
 export default function SchoolDetailPage() {
   const params = useParams();
@@ -141,6 +142,7 @@ export default function SchoolDetailPage() {
             </p>
           </section>
 
+          <Consultation />
         </div>
       </div>
     </div>

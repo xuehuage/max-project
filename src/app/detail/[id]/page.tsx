@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import data from "../../../data/destinations.json";
 import schoolsData from "../../../data/schools.json";
+import Consultation from "@/components/Consultation";
 
 export default function DetailPage() {
   const params = useParams();
@@ -171,6 +172,7 @@ export default function DetailPage() {
               </div>
             </section>
           )}
+          <Consultation />
         </div>
       </div>
     </div>

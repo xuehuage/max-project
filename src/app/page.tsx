@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import schoolsData from "../data/schools.json";
 // Swiper Imports
+import Consultation from "@/components/Consultation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Grid } from "swiper/modules";
 
@@ -196,10 +197,10 @@ export default function Home() {
                   ) : (
                     <>
                       <Link href={`/detail/${dest.id}-ug`} className="flex-1 text-center py-3 navy-bg text-white text-sm font-bold rounded-sm hover:opacity-90 transition-opacity">
-                        本科申请
+                        本科申请详情
                       </Link>
                       <Link href={`/detail/${dest.id}-pg`} className="flex-1 text-center py-3 border border-blue-900 text-blue-900 text-sm font-bold rounded-sm hover:bg-gray-50 transition-colors">
-                        硕士申请
+                        硕士申请详情
                       </Link>
                     </>
                   )}
@@ -354,34 +355,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Consultation Section */}
-        <section className="py-20 px-8 bg-gray-50/50 border-t border-gray-100">
-          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="text-center md:text-left md:flex-1">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-900 tracking-tight">一对一方案咨询</h2>
-              <p className="text-sm text-gray-500 leading-relaxed max-w-md mx-auto md:mx-0">
-                扫描右侧二维码，添加客服微信，获取您的专属留学规划方案。我们的资深导师将为您提供从院校选择到文书准备的全流程专业指导。
-              </p>
-              <div className="mt-8 flex items-center justify-center md:justify-start gap-3">
-                <span className="w-8 h-[1px] gold-bg opacity-50"></span>
-                <span className="text-[10px] uppercase tracking-[0.3em] gold-text font-bold text-[#c5a059]">Expert Guidance</span>
-                <span className="w-8 h-[1px] gold-bg opacity-50"></span>
-              </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-[#c5a059]/10 rounded-xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative bg-white p-4 rounded-xl shadow-lg border-4 border-white ring-1 ring-gray-100">
-                <div className="w-48 h-48 md:w-56 md:h-56 bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
-                  <img src="/images/city/max-fang.jpg" alt="WeChat QR Code" className="w-full h-full object-cover" />
-                </div>
-                <div className="mt-4 text-center">
-                  <span className="text-[10px] text-gray-400 font-medium tracking-widest uppercase">Scan to Add WeChat</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Consultation />
 
         {/* Footer */}
         <footer className="navy-bg text-white py-20 px-10 text-center">
