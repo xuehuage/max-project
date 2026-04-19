@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import schoolsData from "../data/schools.json";
 // Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Grid } from "swiper/modules";
@@ -19,6 +21,7 @@ export default function Home() {
 
   const destinations = [
     {
+      id: "singapore",
       emoji: "🇸🇬",
       name: "新加坡 · Singapore",
       tag: "顶尖公立院校",
@@ -27,6 +30,7 @@ export default function Home() {
       img: "/images/city/Singapore.jpeg",
     },
     {
+      id: "uk",
       emoji: "🇬🇧",
       name: "英国 · United Kingdom",
       tag: "经典精英教育",
@@ -35,6 +39,7 @@ export default function Home() {
       img: "/images/city/UK.jpeg",
     },
     {
+      id: "us",
       emoji: "🇺🇸",
       name: "美国 · United States",
       tag: "全球科研高地",
@@ -43,6 +48,7 @@ export default function Home() {
       img: "/images/city/USA.jpeg",
     },
     {
+      id: "hk",
       emoji: "🇭🇰",
       name: "中国香港 · Hong Kong",
       tag: "国际金融窗口",
@@ -51,6 +57,7 @@ export default function Home() {
       img: "/images/city/hongkong.jpeg",
     },
     {
+      id: "au",
       emoji: "🇦🇺",
       name: "澳大利亚 · Australia",
       tag: "优质教育资源",
@@ -59,6 +66,7 @@ export default function Home() {
       img: "/images/city/Australia.jpeg",
     },
     {
+      id: "ca",
       emoji: "🇨🇦",
       name: "加拿大 · Canada",
       tag: "安全宜居首选",
@@ -67,6 +75,7 @@ export default function Home() {
       img: "/images/city/Canada.jpeg",
     },
     {
+      id: "my",
       emoji: "🇲🇾",
       name: "马来西亚 · Malaysia",
       tag: "高性价比枢纽",
@@ -76,28 +85,13 @@ export default function Home() {
     },
   ];
 
-  const partners = [
-    { name: "Melbourne", img: "/images/logos/log-Melbourne.png" },
-    { name: "Rochester", img: "/images/logos/logi-Rochester.png" },
-    { name: "Auckland", img: "/images/logos/logo-Auckland.png" },
-    { name: "JCU Singapore", img: "/images/logos/logo-JCU.svg" },
-    { name: "KCL", img: "/images/logos/logo-KCL.svg" },
-    { name: "Manchester", img: "/images/logos/logo-Manchester.png" },
-    { name: "Monash", img: "/images/logos/logo-Monash.png" },
-    { name: "诺丁汉大学", img: "/images/logos/logo-Nottingham.png" },
-    { name: "Ohio", img: "/images/logos/logo-Ohio.png" },
-    { name: "Queensland", img: "/images/logos/logo-Queensland.png" },
-    { name: "UCD Singapore", img: "/images/logos/logo-Singapo-ucd.svg" },
-    { name: "UoB Singapore", img: "/images/logos/logo-Singapo_Birmingham.png" },
-    { name: "SMU", img: "/images/logos/logo-Singapore_Management.png" },
-    { name: "UCL", img: "/images/logos/logo-UCL.jpeg" },
-    { name: "UNSW", img: "/images/logos/logo-UNSW_Sydney.png" },
-    { name: "Ottawa", img: "/images/logos/logo-UOttawa.png" },
-    { name: "Warwick", img: "/images/logos/logo-Warwick.png" },
-    { name: "Massey", img: "/images/logos/logo-singapo-Massey.png" },
-    { name: "Curtin", img: "/images/logos/logo-singapo-curtin.png" },
-    { name: "NCU", img: "/images/logos/logo-singapo-ncu.svg" },
-  ];
+  const partners = schoolsData
+    .filter(s => s.logo && (s as any).is_featured)
+    .map(s => ({
+      id: s.id,
+      name: s.cn_name || s.en_name,
+      img: s.logo || ""
+    }));
 
   const faqs = [
     {
@@ -136,7 +130,7 @@ export default function Home() {
         <header className="navy-bg text-white py-24 px-8 text-center">
           <div className="mb-4 opacity-70 text-xs tracking-[0.4em] uppercase">Excellence in Global Education</div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-wider text-white">成都迈科斯国际教育</h1>
-          <p className="gold-text italic text-sm md:text-base mb-12">MAX EDUCATION · 专业名校申请咨询与学术规划</p>
+          <p className="gold-text text-sm md:text-base mb-12 text-left indent-[2em] leading-relaxed max-w-3xl mx-auto">成都迈科斯国际教育深耕全球名校申请，致力于为学子提供一站式、定制化的专业留学服务，业务涵盖背景提升、名校规划、文书指导等核心领域。作为迈科斯官方唯一授权门户，我们实时同步官方课程动态与留学资讯，由资深顾问团队为您提供精准、前瞻的海外升学解决方案。</p>
           <div className="inline-block py-2 px-8 border border-white/30 text-xs tracking-[0.2em] bg-white/5 uppercase">
             2026 校内推荐官方公示页面
           </div>
@@ -189,10 +183,26 @@ export default function Home() {
                 <p className="text-sm text-gray-600 leading-loose mb-4">
                   {dest.desc}
                 </p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 pb-4">
                   {dest.labels.map((label, lIdx) => (
                     <span key={lIdx} className="text-[10px] border px-2 py-1 text-gray-400">{label}</span>
                   ))}
+                </div>
+                <div className="flex gap-3 pt-4 border-t border-gray-100">
+                  {dest.id === "us" || dest.id === "hk" ? (
+                    <div className="flex-1 text-center py-3 bg-gray-50 text-gray-400 text-sm font-bold rounded-sm tracking-wider border border-gray-200 border-dashed cursor-default">
+                      Case by Case · 详情请咨询
+                    </div>
+                  ) : (
+                    <>
+                      <Link href={`/detail/${dest.id}-ug`} className="flex-1 text-center py-3 navy-bg text-white text-sm font-bold rounded-sm hover:opacity-90 transition-opacity">
+                        本科申请
+                      </Link>
+                      <Link href={`/detail/${dest.id}-pg`} className="flex-1 text-center py-3 border border-blue-900 text-blue-900 text-sm font-bold rounded-sm hover:bg-gray-50 transition-colors">
+                        硕士申请
+                      </Link>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
@@ -234,14 +244,14 @@ export default function Home() {
             >
               {partners.map((partner, idx) => (
                 <SwiperSlide key={idx}>
-                  <div className="flex flex-col items-center gap-3 py-2">
-                    <div className="partner-logo shrink-0">
+                  <Link href={`/school/${partner.id}`} className="flex flex-col items-center gap-3 py-2 cursor-pointer group">
+                    <div className="partner-logo shrink-0 group-hover:border-gold group-hover:-translate-y-1 transition-all">
                       <img src={partner.img} alt={partner.name} className="max-w-[75%] max-h-[75%] object-contain" />
                     </div>
-                    <span className="text-xs text-gray-600 font-bold text-center leading-tight px-1">
+                    <span className="text-xs text-gray-600 font-bold text-center leading-tight px-1 group-hover:text-gold transition-colors">
                       {partner.name}
                     </span>
-                  </div>
+                  </Link>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -341,6 +351,35 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Consultation Section */}
+        <section className="py-20 px-8 bg-gray-50/50 border-t border-gray-100">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="text-center md:text-left md:flex-1">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-900 tracking-tight">一对一方案咨询</h2>
+              <p className="text-sm text-gray-500 leading-relaxed max-w-md mx-auto md:mx-0">
+                扫描右侧二维码，添加客服微信，获取您的专属留学规划方案。我们的资深导师将为您提供从院校选择到文书准备的全流程专业指导。
+              </p>
+              <div className="mt-8 flex items-center justify-center md:justify-start gap-3">
+                <span className="w-8 h-[1px] gold-bg opacity-50"></span>
+                <span className="text-[10px] uppercase tracking-[0.3em] gold-text font-bold text-[#c5a059]">Expert Guidance</span>
+                <span className="w-8 h-[1px] gold-bg opacity-50"></span>
+              </div>
+            </div>
+            
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-[#c5a059]/10 rounded-xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-white p-4 rounded-xl shadow-lg border-4 border-white ring-1 ring-gray-100">
+                <div className="w-48 h-48 md:w-56 md:h-56 bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
+                  <img src="/images/city/max-fang.jpg" alt="WeChat QR Code" className="w-full h-full object-cover" />
+                </div>
+                <div className="mt-4 text-center">
+                  <span className="text-[10px] text-gray-400 font-medium tracking-widest uppercase">Scan to Add WeChat</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -9,8 +9,8 @@ const notoSerifSC = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: "迈科斯国际教育 - 权威学术版",
-  description: "MAX EDUCATION · 全球名校申请官方合作机构",
+  title: "成都迈科斯国际教育官网 - 专业留学服务机构",
+  description: "成都迈科斯国际教育深耕全球名校申请，致力于为学子提供一站式、定制化的专业留学服务，业务涵盖背景提升、名校规划、文书指导等核心领域。作为迈科斯官方唯一授权门户，我们实时同步官方课程动态与留学资讯，由资深顾问团队为您提供精准、前瞻的海外升学解决方案。",
 };
 
 export default function RootLayout({
